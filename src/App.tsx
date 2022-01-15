@@ -13,16 +13,19 @@ const App:React.FC = ()  => {
 
   return (
     <div>
-        <img style={{position:'absolute', clipPath:`inset(0% ${rascalPercentageAmountString}% 0% 0%)`}} src={safangel} alt="safangel" />
-        <img style={{position:'absolute', clipPath:`inset(0% 0% 0% ${angelPercentageAmountString}%)`}} src={safademon} alt="safademon" />
+      <div>
+        <img style={{position:'absolute',  clipPath:`inset(0% ${rascalPercentageAmountString}% 0% 0%)`}} src={safangel} alt="safangel" />
+        <img style={{position:'absolute',  clipPath:`inset(0% 0% 0% ${angelPercentageAmountString}%)`}} src={safademon} alt="safademon" />
+      </div>
+      <div>
         <p>
         Today you've been {
             angelPercentageAmountString
           }% angel but those {
             rascalPercentageAmountString
           }% is rascal!
-        </p>  
-      
+        </p>
+      </div>
     </div>
   );
 }
