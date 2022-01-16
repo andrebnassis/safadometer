@@ -38,7 +38,7 @@ const App:React.FC = ()  => {
 
   return (
 
-    <Box sx={{height:'100%', width:'100%'}}>  
+    <Box className="Container">  
       <AppBar onChangeLanguage={(data) => setLang(data)} />
       <Box className="App">
         <Box className="image-container">

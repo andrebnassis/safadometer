@@ -13,7 +13,7 @@ export default function Footer() {
   const cliVersion = useTranslateFullContent('cliVersion','footer');
   
   return (
-    <Box component="footer" sx={{ bgcolor: 'background.paper', py: 1, position: 'fixed', left:0, bottom:'10px', width: '100%'}}>
+    <Box component="footer" sx={{ bgcolor: 'background.paper', py: 1, marginTop: 'auto', marginBottom:'10px' }}>
       <Stack direction="row" sx={{alignItems:'center', justifyContent:'space-between'}}>
         <Typography
           variant="body2"
