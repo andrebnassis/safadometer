@@ -23,16 +23,30 @@ const App:React.FC = ()  => {
       </div>
       <div style={{display:'flex', justifyContent:'center', alignItems:'center'}}>
         <Typography variant='h6'>
-        Today you've been {
+        Today you've been
+        </Typography>
+        <Typography variant='h6' color="#09599F" component="span" sx={{margin:'0 4px 0 4px'}}>
+         {
             angelPercentageAmountString
-          }% angel but those {
+          }%
+          </Typography>
+          <Typography variant='h6' >
+           angel but those 
+           </Typography>
+           <Typography variant='h6' color="#9B0A0A" component="span" sx={{margin:'0 4px 0 4px'}}>
+           {
             rascalPercentageAmountString
-          }% is rascal!
+          }%
+          </Typography>
+          <Typography variant='h6'>
+           is rascal!
         </Typography>
       </div>
       </div>
       </div>
   );
 }
+
+
 
 export default App;
