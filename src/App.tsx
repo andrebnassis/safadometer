@@ -4,7 +4,7 @@ import safademon from './resources/safadometer_01.png'
 import AppBar from './AppBar';
 import './App.css'
 import { Typography } from '@mui/material';
-
+import Footer from './Footer'
 const App:React.FC = ()  => {
   const angelPercentageAmount = Math.round((Math.random()*100 + Number.EPSILON) * 100) / 100;
   const rascalPercentageAmount = (100 - angelPercentageAmount);
@@ -15,8 +15,8 @@ const App:React.FC = ()  => {
   return (
 
     <div style={{height:'100%', width:'100%'}}>  
-    <AppBar />
-    <div className="App">  
+      <AppBar />
+      <div className="App">  
     <div className="image-container">
         <img style={{position:'absolute', left:'50%', top:'50%',  transform: 'translate(-50%,-50%)', clipPath:`inset(0% ${rascalPercentageAmountString}% 0% 0%)`}} src={safangel} alt="safangel" />
         <img style={{position:'absolute',  left:'50%', top:'50%', transform: 'translate(-50%,-50%)', clipPath:`inset(0% 0% 0% ${angelPercentageAmountString}%)`}} src={safademon} alt="safademon" />
@@ -43,7 +43,9 @@ const App:React.FC = ()  => {
         </Typography>
       </div>
       </div>
-      </div>
+      <Footer title='title' description='description'/>
+
+    </div>
   );
 }
 
