@@ -1,16 +1,19 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './index.css'
 import Theme from './theme'
 import { ThemeProvider } from '@mui/material/styles';
+import './i18next';
 
 ReactDOM.render(
   <React.StrictMode>
+    <Suspense fallback={<div>Loading...</div>}>
     <ThemeProvider theme={Theme}>
     <App />
     </ThemeProvider>
+    </Suspense>
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -12,19 +12,25 @@ import Link from '@mui/material/Link';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { Button } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 
-const AppBar:React.FC = () => {
+const AppBar:React.FC<{onChangeLanguage:(data:string) => void}> = ({onChangeLanguage}) => {
+  const { t, i18n } = useTranslation();
+  const [selected, setSelected] = React.useState<string>(i18n.language.toUpperCase());
+  useEffect(() => {
+    setSelected(i18n.language.toUpperCase())
+  },[i18n.language])
 
   const githubRepoUrl = 'https://github.com/andrebnassis/safadometer';
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const [selected, setSelected] = React.useState<string>('EN');
+
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = ( event: React.MouseEvent<HTMLElement>, value:string) => {
-    setSelected(value);
+    onChangeLanguage(value);
     setAnchorEl(null);
   };
   return (
