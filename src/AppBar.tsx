@@ -16,7 +16,8 @@ const AppBar:React.FC = () => {
   return (
     <MuiAppBar position="static" color="primary">
       <Container maxWidth="xl">
-        <Toolbar disableGutters variant="dense" color={"black"}>
+        <Toolbar disableGutters variant="dense" sx={{display:'flex', flexDirection:'row', alignItems:'center', justifyContent: 'space-between'}}>
+          
           <Stack direction="row" sx={{alignItems:'center', justifyContent:'center'}}>
           <Box >
             <Tooltip title="Check source code">
@@ -35,6 +36,7 @@ const AppBar:React.FC = () => {
           </Typography>
           </Box>
           </Stack>
+          <Typography>EN</Typography>
         </Toolbar>
       </Container>
     </MuiAppBar>
