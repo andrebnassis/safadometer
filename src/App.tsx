@@ -39,8 +39,8 @@ const App:React.FC = ()  => {
       <AppBar onChangeLanguage={(data) => setLang(data)} />
       <div className="App">  
     <div className="image-container">
-        <img style={{position:'absolute', left:'50%', top:'50%',  transform: 'translate(-50%,-50%)', clipPath:`inset(0% ${rascalPercentageAmountString}% 0% 0%)`}} src={safangel} alt="safangel" />
-        <img style={{position:'absolute',  left:'50%', top:'50%', transform: 'translate(-50%,-50%)', clipPath:`inset(0% 0% 0% ${angelPercentageAmountString}%)`}} src={safademon} alt="safademon" />
+        <img style={{position:'absolute',  maxWidth: '482px', width:'100%', height:'auto', left:'50%', top:'50%',  transform: 'translate(-50%,-50%)', clipPath:`inset(0% ${rascalPercentageAmountString}% 0% 0%)`}} src={safangel} alt="safangel" />
+        <img style={{position:'absolute',  maxWidth: '482px', width:'100%', height:'auto', left:'50%', top:'50%', transform: 'translate(-50%,-50%)', clipPath:`inset(0% 0% 0% ${angelPercentageAmountString}%)`}} src={safademon} alt="safademon" />
       </div>
       <div style={{display:'flex', justifyContent:'center', alignItems:'center', flexWrap: 'wrap'}}>
         {mainContentArr.map(phrase => {
