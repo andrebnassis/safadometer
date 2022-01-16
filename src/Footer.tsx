@@ -17,11 +17,11 @@ export default function Footer() {
           color="text.secondary"
           sx={{marginLeft: '10px'}}
         >
-          Inspired by telegram's project:{'  '}<Link color="inherit" href="https://t.me/safadown_bot?do=open_link">Safadown</Link>
+          Inspired by telegram's project:{'  '}<Link color="inherit" target={'_blank'} href="https://t.me/safadown_bot">Safadown</Link>
         </Typography>
         <Typography variant="body2" color="text.secondary" align="center"   sx={{marginRight: '10px'}}>
           CLI version:{'  '}
-          <Link color="inherit" href="https://www.npmjs.com/package/safadometer-cli">safadometer-cli</Link>
+          <Link color="inherit" target={'_blank'} href="https://www.npmjs.com/package/safadometer-cli">safadometer-cli</Link>
           </Typography>
       </Stack>
     </Box>

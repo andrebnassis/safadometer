@@ -29,7 +29,7 @@ const AppBar:React.FC = () => {
           <Typography
             variant="h6"
           >
-            <Link color="inherit" underline={'none'} href={githubRepoUrl}>
+            <Link color="inherit" target={'_blank'} underline={'none'} href={githubRepoUrl}>
             Safadometer
             </Link>
           </Typography>
