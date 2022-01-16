@@ -33,8 +33,8 @@ const App:React.FC = ()  => {
     rascalPercentageAmount: rascalPercentageAmountString
   })
 
-  const valuesExp = '/(' + angelPercentageAmountString + '%)|(' + rascalPercentageAmountString + '%)/g';
-  const mainContentArr = mainContent.split(valuesExp).filter(n => n);
+  const valuesExp = '(' + angelPercentageAmountString + '%)|(' + rascalPercentageAmountString + '%)';
+  const mainContentArr = mainContent.split(new RegExp(valuesExp,"g")).filter(n => n);
 
   return (
 
@@ -49,14 +49,14 @@ const App:React.FC = ()  => {
       <Box sx={{display:'flex', flexDirection:'column', alignItems:'center'}}>
       <Box sx={{display:'flex', justifyContent:'center', alignItems:'center', flexWrap: 'wrap'}}>
         {mainContentArr.map(phrase => {
-          if(phrase === 'angelPercentageAmountString%'){
+          if(phrase === `${angelPercentageAmountString}%`){
             return (<Typography variant='h6' color="#09599F" component="span" sx={{margin:'0 4px 0 4px'}}>
             {
                angelPercentageAmountString
              }%
              </Typography>)
           }
-          if(phrase === 'rascalPercentageAmountString%'){
+          if(phrase === `${rascalPercentageAmountString}%`){
             return (<Typography variant='h6' color="#9B0A0A" component="span" sx={{margin:'0 4px 0 4px'}}>
             {
              rascalPercentageAmountString
