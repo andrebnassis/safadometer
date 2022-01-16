@@ -43,7 +43,7 @@ const App:React.FC = ()  => {
         </Typography>
       </div>
       </div>
-      <Footer title='title' description='description'/>
+      <Footer/>
 
     </div>
   );

@@ -6,12 +6,13 @@ import Container from '@mui/material/Container';
 import IconButton from '@mui/material/IconButton';
 import Box from '@mui/material/Box';
 import Tooltip from '@mui/material/Tooltip';
-import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack'
 import { FaGithub } from 'react-icons/fa'
+import Link from '@mui/material/Link';
 
 const AppBar:React.FC = () => {
 
+  const githubRepoUrl = 'https://github.com/andrebnassis/safadometer';
   return (
     <MuiAppBar position="static" color="primary">
       <Container maxWidth="xl">
@@ -19,7 +20,7 @@ const AppBar:React.FC = () => {
           <Stack direction="row" sx={{alignItems:'center', justifyContent:'center'}}>
           <Box >
             <Tooltip title="Check source code">
-              <IconButton onClick={() => window.open('https://github.com/andrebnassis/safadometer')} sx={{color:'#fff'}}>
+              <IconButton onClick={() => window.open(githubRepoUrl)} sx={{color:'#fff'}}>
                   <FaGithub/>
               </IconButton>
             </Tooltip>
@@ -28,7 +29,9 @@ const AppBar:React.FC = () => {
           <Typography
             variant="h6"
           >
+            <Link color="inherit" underline={'none'} href={githubRepoUrl}>
             Safadometer
+            </Link>
           </Typography>
           </Box>
           </Stack>

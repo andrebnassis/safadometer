@@ -1,46 +1,29 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
+import Stack from '@mui/material/Stack';
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
 
-interface FooterProps {
-  description: string;
-  title: string;
-}
 
-export default function Footer(props: FooterProps) {
-  const { description, title } = props;
+export default function Footer() {
 
   return (
-    <Box component="footer" sx={{ bgcolor: 'background.paper', py: 6, position: 'fixed', left:0, bottom:'10px', width: '100%'}}>
-      <Container maxWidth="lg">
-        <Typography variant="h6" align="center" gutterBottom>
-          {title}
-        </Typography>
+    <Box component="footer" sx={{ bgcolor: 'background.paper', py: 1, position: 'fixed', left:0, bottom:'10px', width: '100%'}}>
+      <Stack direction="row" sx={{alignItems:'center', justifyContent:'space-between'}}>
         <Typography
-          variant="subtitle1"
+          variant="body2"
           align="center"
           color="text.secondary"
-          component="p"
+          sx={{marginLeft: '10px'}}
         >
-          {description}
+          Inspired by telegram's project:{'  '}<Link color="inherit" href="https://t.me/safadown_bot?do=open_link">Safadown</Link>
         </Typography>
-        <Copyright />
-      </Container>
+        <Typography variant="body2" color="text.secondary" align="center"   sx={{marginRight: '10px'}}>
+          CLI version:{'  '}
+          <Link color="inherit" href="https://www.npmjs.com/package/safadometer-cli">safadometer-cli</Link>
+          </Typography>
+      </Stack>
     </Box>
   );
 }
