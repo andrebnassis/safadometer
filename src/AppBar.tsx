@@ -9,10 +9,24 @@ import Tooltip from '@mui/material/Tooltip';
 import Stack from '@mui/material/Stack'
 import { FaGithub } from 'react-icons/fa'
 import Link from '@mui/material/Link';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import { Button } from '@mui/material';
 
 const AppBar:React.FC = () => {
 
   const githubRepoUrl = 'https://github.com/andrebnassis/safadometer';
+
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const [selected, setSelected] = React.useState<string>('EN');
+  const open = Boolean(anchorEl);
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = ( event: React.MouseEvent<HTMLElement>, value:string) => {
+    setSelected(value);
+    setAnchorEl(null);
+  };
   return (
     <MuiAppBar position="static" color="primary">
       <Container maxWidth="xl">
@@ -36,7 +50,38 @@ const AppBar:React.FC = () => {
           </Typography>
           </Box>
           </Stack>
-          <Typography>EN</Typography>
+          <Box>
+          <Button variant="text" color={'secondary'}
+            id="basic-button"
+            aria-controls={open ? 'basic-menu' : undefined}
+            aria-haspopup="true"
+            aria-expanded={open ? 'true' : undefined}
+            onClick={handleClick}
+          >{selected}</Button>
+          <Menu
+        id="basic-menu"
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+        MenuListProps={{
+          'aria-labelledby': 'basic-button',
+          role: 'listbox',
+        }}
+      >
+        <MenuItem 
+         key={'EN'} 
+         selected={selected === 'EN'}
+         onClick={(event) => handleClose(event, 'EN')}>EN</MenuItem>
+        <MenuItem 
+        key={'PT'}
+        selected={selected === 'PT'}
+        onClick={(event) => handleClose(event, 'PT')}>PT</MenuItem>
+        <MenuItem 
+        key={'ES'}
+        selected={selected === 'ES'}
+        onClick={(event) => handleClose(event, 'ES')}>ES</MenuItem>
+      </Menu>
+          </Box>
         </Toolbar>
       </Container>
     </MuiAppBar>
