@@ -3,7 +3,12 @@ import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-
+import IconButton from '@mui/material/IconButton';
+import Box from '@mui/material/Box';
+import Tooltip from '@mui/material/Tooltip';
+import Avatar from '@mui/material/Avatar';
+import Stack from '@mui/material/Stack'
+import { FaGithub } from 'react-icons/fa'
 
 const AppBar:React.FC = () => {
 
@@ -11,11 +16,22 @@ const AppBar:React.FC = () => {
     <MuiAppBar position="static" color="primary">
       <Container maxWidth="xl">
         <Toolbar disableGutters variant="dense" color={"black"}>
+          <Stack direction="row" sx={{alignItems:'center', justifyContent:'center'}}>
+          <Box >
+            <Tooltip title="Check source code">
+              <IconButton onClick={() => window.open('https://github.com/andrebnassis/safadometer')} sx={{color:'#fff'}}>
+                  <FaGithub/>
+              </IconButton>
+            </Tooltip>
+          </Box>
+          <Box>
           <Typography
             variant="h6"
           >
             Safadometer
           </Typography>
+          </Box>
+          </Stack>
         </Toolbar>
       </Container>
     </MuiAppBar>
