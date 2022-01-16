@@ -1,3 +1,17 @@
+# Project Overview
+
+The goal of this project is to practice some concepts in a React application. You can find here:
+
+* i18next for translation
+* Material UI components 
+* CSS practice with images
+
+## Published version
+
+This project is published at: [https://andrebnassis.github.io/safadometer/](https://andrebnassis.github.io/safadometer/)
+
+reference: [https://dev.to/yuribenjamin/how-to-deploy-react-app-in-github-pages-2a1f](https://dev.to/yuribenjamin/how-to-deploy-react-app-in-github-pages-2a1f)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
