@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import safangel from './resources/safadometer_00.png'
 import safademon from './resources/safadometer_01.png'
 import AppBar from './AppBar';
@@ -13,13 +13,15 @@ const App:React.FC = ()  => {
   const { t, i18n } = useTranslation();
   const [lang, setLang] = useState<string>('EN');
 
+  const value = useMemo(() => Math.round((Math.random()*100 + Number.EPSILON) * 100) / 100,[]);
+
   useEffect(() => {
     console.log(lang.toLowerCase())
     i18n.changeLanguage(lang.toLowerCase());
     }, [lang, i18n]);
 
-    const angelPercentageAmount = Math.round((Math.random()*100 + Number.EPSILON) * 100) / 100;
-    const rascalPercentageAmount = (100 - angelPercentageAmount);
+    const angelPercentageAmount = value;
+    const rascalPercentageAmount = (100 - value);
   
     const angelPercentageAmountString = angelPercentageAmount.toLocaleString("en-US",{maximumFractionDigits:2, minimumFractionDigits:0});
     const rascalPercentageAmountString = rascalPercentageAmount.toLocaleString("en-US",{maximumFractionDigits:2, minimumFractionDigits:0});
