@@ -1,12 +1,12 @@
 {
-    "head":{
-
+    "header":{
+        "githubTooltip":"Veja o código fonte"
     },
     "body":{
         "main":  "Hoje você está {{angelPercentageAmount}}% anjo mas aquele {{rascalPercentageAmount}} é vagabundo!"
     },
     "footer":{
-
+        "inspiredBy":"Inspirado pelo projeto do Telegram",
+        "cliVersion":"versão CLI"
     }
-
 }

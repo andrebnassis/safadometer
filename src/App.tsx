@@ -10,7 +10,7 @@ import useTranslateFullContent from './customHooks/useTranslateFullContent';
 
 const App:React.FC = ()  => {
 
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const [lang, setLang] = useState<string>('EN');
 
   const value = useMemo(() => Math.round((Math.random()*100 + Number.EPSILON) * 100) / 100,[]);
@@ -26,7 +26,6 @@ const App:React.FC = ()  => {
     const angelPercentageAmountString = angelPercentageAmount.toLocaleString("en-US",{maximumFractionDigits:2, minimumFractionDigits:0});
     const rascalPercentageAmountString = rascalPercentageAmount.toLocaleString("en-US",{maximumFractionDigits:2, minimumFractionDigits:0});
 
-    
   const mainContent = useTranslateFullContent('main','body',{
     angelPercentageAmount: 'angelPercentageAmountString',
     rascalPercentageAmount: 'rascalPercentageAmountString'

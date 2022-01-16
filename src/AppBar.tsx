@@ -13,12 +13,16 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { Button } from '@mui/material';
 import { useTranslation } from 'react-i18next';
+import useTranslateFullContent from './customHooks/useTranslateFullContent';
 
 const AppBar:React.FC<{onChangeLanguage:(data:string) => void}> = ({onChangeLanguage}) => {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const [selected, setSelected] = React.useState<string>(i18n.language.toUpperCase());
+
+  const githubTooltip = useTranslateFullContent('githubTooltip','header')
+
   useEffect(() => {
-    setSelected(i18n.language.toUpperCase())
+    setSelected(i18n.language.toUpperCase());
   },[i18n.language])
 
   const githubRepoUrl = 'https://github.com/andrebnassis/safadometer';
@@ -40,7 +44,7 @@ const AppBar:React.FC<{onChangeLanguage:(data:string) => void}> = ({onChangeLang
           
           <Stack direction="row" sx={{alignItems:'center', justifyContent:'center'}}>
           <Box >
-            <Tooltip title="Check source code">
+            <Tooltip title={githubTooltip}>
               <IconButton onClick={() => window.open(githubRepoUrl)} sx={{color:'#fff'}}>
                   <FaGithub/>
               </IconButton>
