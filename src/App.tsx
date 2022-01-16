@@ -38,62 +38,62 @@ const App:React.FC = ()  => {
 
   return (
 
-    <div style={{height:'100%', width:'100%'}}>  
+    <Box sx={{height:'100%', width:'100%'}}>  
       <AppBar onChangeLanguage={(data) => setLang(data)} />
-      <div className="App">  
-     
-    <div className="image-container">
-        <img style={{position:'absolute',  maxWidth: '482px', width:'100%', height:'auto', left:'50%', top:'50%',  transform: 'translate(-50%,-50%)', clipPath:`inset(0% ${rascalPercentageAmountString}% 0% 0%)`}} src={safangel} alt="safangel" />
-        <img style={{position:'absolute',  maxWidth: '482px', width:'100%', height:'auto', left:'50%', top:'50%', transform: 'translate(-50%,-50%)', clipPath:`inset(0% 0% 0% ${angelPercentageAmountString}%)`}} src={safademon} alt="safademon" />
-      </div>
-      <Box sx={{display:'flex', flexDirection:'column', alignItems:'center'}}>
-      <Box sx={{display:'flex', justifyContent:'center', alignItems:'center', flexWrap: 'wrap'}}>
-        {mainContentArr.map(phrase => {
-          if(phrase === `${angelPercentageAmountString}%`){
-            return (<Typography variant='h6' color="#09599F" component="span" sx={{margin:'0 4px 0 4px'}}>
+      <Box className="App">
+        <Box className="image-container">
+          <img style={{position:'absolute',  maxWidth: '482px', width:'100%', height:'auto', left:'50%', top:'50%',  transform: 'translate(-50%,-50%)', clipPath:`inset(0% ${rascalPercentageAmountString}% 0% 0%)`}} src={safangel} alt="safangel" />
+          <img style={{position:'absolute',  maxWidth: '482px', width:'100%', height:'auto', left:'50%', top:'50%', transform: 'translate(-50%,-50%)', clipPath:`inset(0% 0% 0% ${angelPercentageAmountString}%)`}} src={safademon} alt="safademon" />
+        </Box>
+        <Box sx={{display:'flex', flexDirection:'column', alignItems:'center', margin: '0 10px 0 10px'}}>
+          <Box sx={{display:'flex', justifyContent:'center', alignItems:'center', flexWrap: 'wrap'}}>
+            {mainContentArr.map(phrase => {
+            if(phrase === `${angelPercentageAmountString}%`)
             {
-               angelPercentageAmountString
-             }%
-             </Typography>)
-          }
-          if(phrase === `${rascalPercentageAmountString}%`){
-            return (<Typography variant='h6' color="#9B0A0A" component="span" sx={{margin:'0 4px 0 4px'}}>
+              return (
+              <Typography variant='h6' color="#09599F" component="span" sx={{margin:'0 4px 0 4px'}}>
+              {
+                angelPercentageAmountString
+              }%
+              </Typography>)
+            }
+            if(phrase === `${rascalPercentageAmountString}%`)
             {
-             rascalPercentageAmountString
-           }%
-           </Typography>)
-          }
+              return (
+              <Typography variant='h6' color="#9B0A0A" component="span" sx={{margin:'0 4px 0 4px'}}>
+              {
+                rascalPercentageAmountString
+              }%
+              </Typography>)
+            }
 
-          return  <Typography variant='h6' >{phrase}</Typography>
-        })}
+            return  <Typography variant='h6' >{phrase}</Typography>
+            })}
+          </Box>
+          <Box sx={{display:'flex', "& button":{margin: '2px'}}}>
+            <FacebookShareButton url={sharedUrl} quote={mainContent} hashtag='#safadometer' windowHeight={window.innerHeight*0.9}>
+              <FacebookIcon
+                size={28}
+                round={false}
+              />
+            </FacebookShareButton>
+            <TwitterShareButton url={sharedUrl} title={mainContent} hashtags={['safadometer']}  windowHeight={window.innerHeight*0.9}>
+              <TwitterIcon
+                size={28}
+                round={false}
+              />
+            </TwitterShareButton>
+            <WhatsappShareButton url={sharedUrl} title={mainContent}  windowHeight={window.innerHeight*0.9}>
+              <WhatsappIcon
+                size={28}
+                round={false}
+              />
+            </WhatsappShareButton>
+          </Box>
+        </Box>
       </Box>
-      <Box sx={{display:'flex', "& button":{margin: '2px'}}}>
-        <FacebookShareButton url={sharedUrl} quote={mainContent} hashtag='#safadometer' windowHeight={window.innerHeight*0.9}>
-        <FacebookIcon
-          size={28}
-          round={false}
-          />
-         </FacebookShareButton>
-         <TwitterShareButton url={sharedUrl} title={mainContent} hashtags={['safadometer']}  windowHeight={window.innerHeight*0.9}>
-        <TwitterIcon
-          size={28}
-          round={false}
-          />
-         </TwitterShareButton>
-        <WhatsappShareButton url={sharedUrl} title={mainContent}  windowHeight={window.innerHeight*0.9}>
-        <WhatsappIcon
-          size={28}
-          round={false}
-          />
-        </WhatsappShareButton>
-      </Box>
-      </Box>
-     
-      
-      </div>
       <Footer/>
-
-    </div>
+    </Box>
   );
 }
 

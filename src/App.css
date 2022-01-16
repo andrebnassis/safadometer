@@ -1,6 +1,7 @@
 .App {
     display:flex;
     flex-direction: column;
+    min-height: 639px;
   }
 
   .image-container {
