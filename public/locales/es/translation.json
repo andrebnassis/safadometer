@@ -1,0 +1,12 @@
+{
+    "head":{
+
+    },
+    "body":{
+        "main":  "Hoy tú estás como {{angelPercentageAmount}}% angel pero aquellos {{rascalPercentageAmount}}% es travieso!"
+    },
+    "footer":{
+
+    }
+
+}

@@ -6,6 +6,7 @@ import './App.css'
 import { Typography } from '@mui/material';
 import Footer from './Footer'
 import { useTranslation } from 'react-i18next';
+import useTranslateFullContent from './customHooks/useTranslateFullContent';
 
 const App:React.FC = ()  => {
 
@@ -17,11 +18,18 @@ const App:React.FC = ()  => {
     i18n.changeLanguage(lang.toLowerCase());
     }, [lang, i18n]);
 
-  const angelPercentageAmount = Math.round((Math.random()*100 + Number.EPSILON) * 100) / 100;
-  const rascalPercentageAmount = (100 - angelPercentageAmount);
+    const angelPercentageAmount = Math.round((Math.random()*100 + Number.EPSILON) * 100) / 100;
+    const rascalPercentageAmount = (100 - angelPercentageAmount);
+  
+    const angelPercentageAmountString = angelPercentageAmount.toLocaleString("en-US",{maximumFractionDigits:2, minimumFractionDigits:0});
+    const rascalPercentageAmountString = rascalPercentageAmount.toLocaleString("en-US",{maximumFractionDigits:2, minimumFractionDigits:0});
 
-  const angelPercentageAmountString = angelPercentageAmount.toLocaleString("en-US",{maximumFractionDigits:2, minimumFractionDigits:0});
-  const rascalPercentageAmountString = rascalPercentageAmount.toLocaleString("en-US",{maximumFractionDigits:2, minimumFractionDigits:0});
+    
+  const main = useTranslateFullContent('main','body',{
+    angelPercentageAmount: angelPercentageAmountString,
+    rascalPercentageAmount: rascalPercentageAmountString
+  })
+
 
   return (
 
@@ -34,23 +42,7 @@ const App:React.FC = ()  => {
       </div>
       <div style={{display:'flex', justifyContent:'center', alignItems:'center'}}>
         <Typography variant='h6'>
-        Today you've been
-        </Typography>
-        <Typography variant='h6' color="#09599F" component="span" sx={{margin:'0 4px 0 4px'}}>
-         {
-            angelPercentageAmountString
-          }%
-          </Typography>
-          <Typography variant='h6' >
-           angel but those 
-           </Typography>
-           <Typography variant='h6' color="#9B0A0A" component="span" sx={{margin:'0 4px 0 4px'}}>
-           {
-            rascalPercentageAmountString
-          }%
-          </Typography>
-          <Typography variant='h6'>
-           is rascal!
+          {main}
         </Typography>
       </div>
       </div>
