@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/safadometer/static/css/main.f84dad1f.css",
-    "main.js": "/safadometer/static/js/main.a040a6ac.js",
+    "main.css": "/safadometer/static/css/main.9ee7fa6c.css",
+    "main.js": "/safadometer/static/js/main.1968d90c.js",
     "static/js/787.f179f047.chunk.js": "/safadometer/static/js/787.f179f047.chunk.js",
     "static/media/safadometer_00.png": "/safadometer/static/media/safadometer_00.925761cd26cd6baa7afc.png",
     "static/media/safadometer_01.png": "/safadometer/static/media/safadometer_01.ffbe8bc2f963520f952a.png",
     "index.html": "/safadometer/index.html",
     "static/media/getFetch.cjs": "/safadometer/static/media/getFetch.c780682470504fffbd04.cjs",
-    "main.f84dad1f.css.map": "/safadometer/static/css/main.f84dad1f.css.map",
-    "main.a040a6ac.js.map": "/safadometer/static/js/main.a040a6ac.js.map",
+    "main.9ee7fa6c.css.map": "/safadometer/static/css/main.9ee7fa6c.css.map",
+    "main.1968d90c.js.map": "/safadometer/static/js/main.1968d90c.js.map",
     "787.f179f047.chunk.js.map": "/safadometer/static/js/787.f179f047.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f84dad1f.css",
-    "static/js/main.a040a6ac.js"
+    "static/css/main.9ee7fa6c.css",
+    "static/js/main.1968d90c.js"
   ]
 }
