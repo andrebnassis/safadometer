@@ -14,7 +14,9 @@ const sharedUrl = 'https://andrebnassis.github.io/safadometer/';
 
 
 const App:React.FC = ()  => {
-  const browserDefaultLanguage = navigator.language || navigator.userLanguage;
+  const browserRawDefaultLanguage = navigator.language || navigator.userLanguage || navigator.browserLanguage || navigator.systemLanguage;
+  const browserDefaultLanguage = browserRawDefaultLanguage ? browserRawDefaultLanguage.split('-')?.[0]?.toLowerCase() : undefined;
+  
   const initialLanguage = browserDefaultLanguage && languages.includes(browserDefaultLanguage) ? browserDefaultLanguage : defaultLanguage;
 
   const { i18n } = useTranslation();
