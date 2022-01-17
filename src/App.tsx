@@ -12,8 +12,11 @@ import { FacebookIcon, FacebookShareButton, TwitterIcon, TwitterShareButton, Wha
 const sharedUrl = 'https://andrebnassis.github.io/safadometer/';
 const App:React.FC = ()  => {
 
+
+  const browserDefaultLanguage = navigator.language || navigator.userLanguage;
+  
   const { i18n } = useTranslation();
-  const [lang, setLang] = useState<string>('EN');
+  const [lang, setLang] = useState<string>(browserDefaultLanguage?.toUpperCase() ?? 'EN');
 
   const value = useMemo(() => Math.round((Math.random()*100 + Number.EPSILON) * 100) / 100,[]);
 
