@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -14,16 +14,10 @@ import MenuItem from '@mui/material/MenuItem';
 import { Button } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import useTranslateFullContent from './customHooks/useTranslateFullContent';
-
+import { languages } from './i18next'
 const AppBar:React.FC<{onChangeLanguage:(data:string) => void}> = ({onChangeLanguage}) => {
   const { i18n } = useTranslation();
-  const [selected, setSelected] = React.useState<string>(i18n.language.toUpperCase());
-
   const githubTooltip = useTranslateFullContent('githubTooltip','header')
-
-  useEffect(() => {
-    setSelected(i18n.language.toUpperCase());
-  },[i18n.language])
 
   const githubRepoUrl = 'https://github.com/andrebnassis/safadometer';
 
@@ -67,7 +61,7 @@ const AppBar:React.FC<{onChangeLanguage:(data:string) => void}> = ({onChangeLang
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
             onClick={handleClick}
-          >{selected}</Button>
+          >{i18n.language.toUpperCase()}</Button>
           <Menu
         id="basic-menu"
         anchorEl={anchorEl}
@@ -78,18 +72,12 @@ const AppBar:React.FC<{onChangeLanguage:(data:string) => void}> = ({onChangeLang
           role: 'listbox',
         }}
       >
-        <MenuItem 
-         key={'EN'} 
-         selected={selected === 'EN'}
-         onClick={(event) => handleClose(event, 'EN')}>EN</MenuItem>
-        <MenuItem 
-        key={'PT'}
-        selected={selected === 'PT'}
-        onClick={(event) => handleClose(event, 'PT')}>PT</MenuItem>
-        <MenuItem 
-        key={'ES'}
-        selected={selected === 'ES'}
-        onClick={(event) => handleClose(event, 'ES')}>ES</MenuItem>
+        {languages.map(lang => (
+          <MenuItem 
+          key={lang}
+          selected={i18n.language === lang}
+          onClick={(event) => handleClose(event, lang)}>{lang.toUpperCase()}</MenuItem>  
+          ))}
       </Menu>
           </Box>
         </Toolbar>

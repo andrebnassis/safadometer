@@ -4,7 +4,8 @@ import { initReactI18next } from 'react-i18next';
 import Backend from 'i18next-http-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
-const languages = ['en', 'pt','es'];
+export const defaultLanguage = 'en';
+export const languages = ['en', 'pt','es'];
 
 i18n
 // load translation using http -> see /public/locales (i.e. https://github.com/i18next/react-i18next/tree/master/example/react/public/locales)
@@ -24,7 +25,7 @@ process.env.PUBLIC_URL || ''
 }/locales/{{lng}}/{{ns}}.json`,
 addPath: null,
 },
-fallbackLng: 'en',
+fallbackLng: defaultLanguage,
 debug: process.env.NODE_ENV !== 'production',
 whitelist: languages,
 interpolation: {

@@ -8,21 +8,29 @@ import Footer from './Footer'
 import { useTranslation } from 'react-i18next';
 import useTranslateFullContent from './customHooks/useTranslateFullContent';
 import { FacebookIcon, FacebookShareButton, TwitterIcon, TwitterShareButton, WhatsappIcon, WhatsappShareButton } from 'react-share';
+import { defaultLanguage, languages } from './i18next'
 
 const sharedUrl = 'https://andrebnassis.github.io/safadometer/';
+
+
 const App:React.FC = ()  => {
-
-
   const browserDefaultLanguage = navigator.language || navigator.userLanguage;
-  
-  const { i18n } = useTranslation();
-  const [lang, setLang] = useState<string>(browserDefaultLanguage?.toUpperCase() ?? 'EN');
+  const initialLanguage = browserDefaultLanguage && languages.includes(browserDefaultLanguage) ? browserDefaultLanguage : defaultLanguage;
 
+  const { i18n } = useTranslation();
+  
+  const [lang, setLang] = useState<string>(initialLanguage);
+
+  const handleOnChangeLanguage = (value:string):void => {
+    if(languages.includes(value)){
+      setLang(value);
+    }
+  }
+  
   const value = useMemo(() => Math.round((Math.random()*100 + Number.EPSILON) * 100) / 100,[]);
 
   useEffect(() => {
-    console.log(lang.toLowerCase())
-    i18n.changeLanguage(lang.toLowerCase());
+    i18n.changeLanguage(lang);
     }, [lang, i18n]);
 
     const angelPercentageAmount = value;
@@ -42,7 +50,7 @@ const App:React.FC = ()  => {
   return (
 
     <Box className="Container">  
-      <AppBar onChangeLanguage={(data) => setLang(data)} />
+      <AppBar onChangeLanguage={(value:string) => handleOnChangeLanguage(value)} />
       <Box className="App">
         <Box className="image-container">
           <img style={{position:'absolute',  maxWidth: '482px', width:'100%', height:'auto', left:'50%', top:'50%',  transform: 'translate(-50%,-50%)', clipPath:`inset(0% ${rascalPercentageAmountString}% 0% 0%)`}} src={safangel} alt="safangel" />
